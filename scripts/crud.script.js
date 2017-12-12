@@ -1,5 +1,6 @@
 $(document).ready(function(){
- 
+
+    /// ADD NEW EVENT ////
 $("#btnAddEvent").on("click", function(){
     var sEventName = $("#txtEventName"); 
     var sEventDate = $("#txtEventDate");    
@@ -10,9 +11,11 @@ $("#btnAddEvent").on("click", function(){
     var sEventImage = $("#fileEventImage");
     var formData = $("#addEventForm").serialize();
     console.log(formData);
+
     if(isNotEmpty(sEventName) && isNotEmpty(sEventDate) && isNotEmpty(sEventPrice) && isNotEmpty(sEventDesc) && isNotEmpty(sEventLocation) && isNotEmpty(sEventCategory) && isNotEmpty(sEventImage)){
+       
         $.ajax({
-            url: "./APIs/crud.api.php",
+            url: "./APIs/addEvent.api.php",
             method: "POST",
             data: formData,
             processData:false, 
@@ -36,6 +39,31 @@ $("#btnAddEvent").on("click", function(){
         return true;
     }
 
+/// ADD NEW EVENT ////
 
+
+getEventData();
 
 });
+
+
+/// GET EVENT LIST ////
+function getEventData(){
+    $.ajax({
+        url: "./APIs/getEvents.api.php",
+        method: "POST",
+        dataType: "text",
+        data: {
+            key: "getEventData",
+        }, success: function(response){
+           
+            if(response != "reachedMax"){
+                $("#eventTable").append(response);
+                
+                
+            }
+        }
+    })
+}
+
+/// GET EVENT LIST ////

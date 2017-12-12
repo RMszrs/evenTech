@@ -156,46 +156,8 @@ if(!isset($_SESSION['loggedIn'])) {
                                     <th></th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr class="table-event-row" data-showThisPage="pageEvent1">
-                                    <td data-th="Name">Event example</td>
-                                    <td data-th="Date">21.12.2017</td>
-                                    <td data-th="Location">Copenhagen, KEA</td>
-                                    <td data-th="Signups">120</td>
-                                    <td data-th="Views">803</td>
-                                    <td data-th="Price">100 DKK</td>
-                                    <td>
-                                        <button class="button btn-table btn-open" data-showThisPage="pageEvent1">Open</button>
-                                        <button class="button btn-table btn-edit">Edit</button>
-                                        <button class="button btn-table btn-delete">Delete</button>
-                                    </td>
-                                </tr>
-            
-                                <tr class="table-event-row" data-showThisPage="pageEvent2">
-                                    <td>Event example</td>
-                                    <td>21.12.2017</td>
-                                    <td>Copenhagen, KEA</td>
-                                    <td>5</td>
-                                    <td>803</td>
-                                    <td>200DKK</td>
-                                    <td>
-                                        <button class="button btn-table btn-edit">Edit</button>
-                                        <button class="button btn-table btn-delete">Delete</button>
-                                    </td>
-                                </tr>
-            
-                                <tr class="table-event-row" data-showThisPage="pageEvent3">
-                                    <td>Event example</td>
-                                    <td>21.12.2017</td>
-                                    <td>Copenhagen, KEA</td>
-                                    <td>50</td>
-                                    <td>803</td>
-                                    <td>300 DKK</td>
-                                    <td>
-                                        <button class="button btn-table btn-edit">Edit</button>
-                                        <button class="button btn-table btn-delete">Delete</button>
-                                    </td>
-                                </tr>
+                            <tbody id="eventTable">
+                               
                             </tbody>
                         </table>
 

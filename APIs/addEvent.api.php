@@ -5,20 +5,24 @@ require "db.php";
 
 if(isset($_POST["key"])){
 
-    $sEventName = $_POST['txtEventName'];
-    $sEventDate = $_POST['txtEventDate'];
-    $sEventPrice = $_POST['txtEventPrice'];
-    $sEventDesc = $_POST['txtEventDesc'];
-    $sEventLocation = $_POST['txtEventLocation'];
-    $sEventCategory = $_POST['txtEventCategory'];
+   
     // $sEventImage = $_POST['image'];
 
     
-    // $sFileName = $_FILES["eventImage"]["name"];
+   
 
 
-
+// ADD EVENTS ///
     if($_POST["key"] == 'addNew') {
+
+        $sEventName = $_POST['txtEventName'];
+        $sEventDate = $_POST['txtEventDate'];
+        $sEventPrice = $_POST['txtEventPrice'];
+        $sEventDesc = $_POST['txtEventDesc'];
+        $sEventLocation = $_POST['txtEventLocation'];
+        $sEventCategory = $_POST['txtEventCategory'];
+        // $sFileName = $_FILES["eventImage"]["name"];
+
         $data = $conn->prepare("SELECT id FROM events WHERE name = :name");
         $data->bindParam(':name', $sEventName);
         $data->execute();
@@ -32,8 +36,8 @@ if(isset($_POST["key"])){
                     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                     
                     $conn ->beginTransaction();
-                    $data = $conn->exec("INSERT INTO events (name, description, price, date) VALUES ('$sEventName', '$sEventDesc', '$sEventPrice', '$sEventDate', )"); // image is out for now
-                    $data = $conn->exec("INSERT INTO eventLocation (event_id, location_id) VALUES (LAST_INSERT_ID(),(SELECT id FROM locations WHERE name= '$sEventLocation'))");
+                    $data = $conn->exec("INSERT INTO events (name, description, price, date) VALUES ('$sEventName', '$sEventDesc', '$sEventPrice', '$sEventDate')"); // image is out for now
+                    $data = $conn->exec("INSERT INTO eventLocation (event_id, location_id) VALUES (LAST_INSERT_ID(),(SELECT id FROM locations WHERE locationName= '$sEventLocation'))");
                     $data = $conn->exec("INSERT INTO eventCategory (event_id, category_id) VALUES (LAST_INSERT_ID(),(SELECT id FROM categories WHERE name= '$sEventCategory'))");
                     $data = $conn->commit();
                     echo "Event added";
@@ -51,4 +55,5 @@ if(isset($_POST["key"])){
         }
     }
 }
+
 
