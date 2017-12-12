@@ -103,11 +103,31 @@ if(!isset($_SESSION['loggedIn'])) {
                         <i class="fa fa-share" aria-hidden="true"></i>Export
                     </button>
 
-                    <button class="button btn-page-secondary">
+                    <button class="button btn-page-secondary" id="fuck">
                         <i class="fa fa-print" aria-hidden="true"></i>Print
                     </button>
                 </div>
+               
+                
             </div>
+        
+            <div class="chartsContainer">
+                   <div class="container">
+                   <h3>Event attendance based on main sponsor</h3>
+                   <canvas id="attendanceLineChart" ></canvas>
+                   </div>
+
+                   <div class="container">
+                   <h3>Revenue of event categories based on main sponsor</h3>
+                   <canvas id="revenueBarChart" ></canvas>
+                   </div>
+
+                   <div class="container">
+                   <h3>Anual revenue from sponsors</h3>
+                   <canvas id="anualRevenueChart" ></canvas>
+                   </div>
+                </div>
+
         </div>
 
         <div class="page" id="pageEvents">
@@ -313,11 +333,12 @@ if(!isset($_SESSION['loggedIn'])) {
     <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
     <script src="scripts/script.js"></script>
     <script src="scripts/crud.script.js"></script>
-    <script src="scripts/charts-data.js"></script>
+    
     <script src="vendor/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
     <script src="vendor/chartjs/chart.js"></script>
+    <script src="scripts/charts-data.js"></script>
     <script src="vendor/tablesorter/tablesorter.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAndibcuJ2-yDr8C7gpxWZC48__TpqRoKs&callback=initMap"></script>
+    <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAndibcuJ2-yDr8C7gpxWZC48__TpqRoKs&callback=initMap"></script> -->
 
 
 </body>

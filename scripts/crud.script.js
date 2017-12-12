@@ -10,7 +10,7 @@ $("#btnAddEvent").on("click", function(){
     var sEventCategory = $("#txtEventCategory");  
     var sEventImage = $("#fileEventImage");
     var formData = $("#addEventForm").serialize();
-    console.log(formData);
+    console.log("formData");
 
     if(isNotEmpty(sEventName) && isNotEmpty(sEventDate) && isNotEmpty(sEventPrice) && isNotEmpty(sEventDesc) && isNotEmpty(sEventLocation) && isNotEmpty(sEventCategory) && isNotEmpty(sEventImage)){
        
