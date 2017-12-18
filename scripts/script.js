@@ -17,20 +17,24 @@ document.addEventListener('click', function (event) {
 
             var sPageId = clickedElement.getAttribute("data-showThisPage");
             switchPages(sPageId);
-        }else if(clickedElement.id == "btnCreateEvent"){
+        } else if (clickedElement.id == "btnCreateEvent") {
             console.log(clickedElement.getAttribute("data-showThisPage"));
 
             var sPageId = clickedElement.getAttribute("data-showThisPage");
             switchPages(sPageId);
-        }else if (clickedElement.classList.contains("btn-open")){
+        } else if (clickedElement.classList.contains("btn-open")) {
             console.log(clickedElement.getAttribute("data-showThisPage"));
-            
-                        var sPageId = clickedElement.getAttribute("data-showThisPage");
-                        switchPages(sPageId);
+
+            var sPageId = clickedElement.getAttribute("data-showThisPage");
+            switchPages(sPageId);
+        } else if (clickedElement.classList.contains("btn-delete")) {
+            var sEvent = clickedElement.getAttribute("data-deleteEvent");
+            console.log(sEvent);
+            deleteEvent(sEvent);
         }
     } else if (clickedElement.classList.contains("column-sort")) {
         $("#table-events").tablesorter();
-    } else if (clickedElement.classList.contains("table-event-row")){
+    } else if (clickedElement.classList.contains("table-event-row")) {
         console.log("table");
         // var sPageId = clickedElement.getAttribute("data-showThisPage");
         // switchPages(sPageId);
@@ -61,45 +65,59 @@ function switchPages(sPageId) {
 
             var sDataAttibute = sPageId;
             document.getElementById(sDataAttibute).style.display = "flex";
-            
+
         } else {
             aBtnShowPages[i].classList.remove("selected");
         }
     }
 }
 
+
+function deleteEvent(delEvent) {
+    
+        console.log(delEvent);
+        var el = document.getElementById(delEvent);
+        el.parentNode.removeChild(el);
+    
+        if (confirm("Are you sure you want to delete this event ?")) {
+            console.log(delEvent);
+            var el = document.getElementById(delEvent);
+            el.parentNode.removeChild(el);
+        }
+    }
+
 function initMap() {
-    var jCopenhagen = {lat: 55.676221, lng: 12.561543};
-		var options = {
-							      zoom: 9,
-							      center: jCopenhagen
-    							};
+    var jCopenhagen = { lat: 55.676221, lng: 12.561543 };
+    var options = {
+        zoom: 9,
+        center: jCopenhagen
+    };
 
     var mapCreate = new google.maps.Map(document.getElementById('mapCreate'), options);
 
-		google.maps.event.addListener(mapCreate, 'click', function(event) {
-		  setLocation(mapCreate, event.latLng);
-		});
+    google.maps.event.addListener(mapCreate, 'click', function (event) {
+        setLocation(mapCreate, event.latLng);
+    });
 }
 
 var marker;
 
-function setLocation(map, location){
-	if (marker) {
-      marker.setPosition(location);
-    }else{
-      marker = new google.maps.Marker({
-        position: location,
-        map: map
-      });
+function setLocation(map, location) {
+    if (marker) {
+        marker.setPosition(location);
+    } else {
+        marker = new google.maps.Marker({
+            position: location,
+            map: map
+        });
     }
 
     var sLatitude = location.lat();
     var sLongitude = location.lng();
 
-		//frmRegisterUser.elements["txtUserLatitude"].value = sLatitude;
-		//frmRegisterUser.elements["txtUserLongitude"].value = sLongitude;
-		console.log("Latitude: " + sLatitude + ", Longitude: " + sLongitude);
+    //frmRegisterUser.elements["txtUserLatitude"].value = sLatitude;
+    //frmRegisterUser.elements["txtUserLongitude"].value = sLongitude;
+    console.log("Latitude: " + sLatitude + ", Longitude: " + sLongitude);
 }
 
 

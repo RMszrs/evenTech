@@ -1,7 +1,7 @@
-<?php 
+<?php
 session_start();
 //if already logged in
-if(isset($_SESSION['loggedIn'])) {
+if (isset($_SESSION['loggedIn'])) {
     header('Location: ./index.php');
     exit();
 }
@@ -20,12 +20,21 @@ if(isset($_SESSION['loggedIn'])) {
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    <form method="post" action="APIs/login.api.php">
-       <input type="text" id="email" placeholder="Email...">
-       <input type="password" id="password" placeholder="Password..."><br />
-       <input type="button" value="Log In" id="login">
-       <p id="loginResponse"></p>
-    </form>
+<div class="container-main">
+        <div class="page" id="pageLogin">
+        
+            <div class="login-form">
+            <h3 class="page-title">Log in</h3>
+            <form method="post" action="APIs/login.api.php">
+            <input type="text" id="email" placeholder="Email...">
+            <input type="password" id="password" placeholder="Password..."><br />
+            <input class="button" type="button" value="Log In" id="login">
+            <p id="loginResponse"></p>
+            </form>
+
+            </div>
+        </div>
+</div>
 
 
 

@@ -174,6 +174,10 @@ hr {
     height: .1em;
     background-color: $colorDivider;
     border: none;
+
+    & .hr-secondary{
+
+    }
 }
 
 button {
@@ -207,14 +211,58 @@ button {
         flex-direction: column;
         justify-content: flex-start;
 
-        .page-title {
-            padding-bottom: 1em;
+        // .page-actionbar{
+
+        // }
+
+     
+
+        .login-form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            align-self: center;
+            background-color: $colorWhite;
+            @include cardShadow;
+            width: 40%;
+            padding: 25px;
+            
+            input{
+                width: 100%;
+                height: 3.5em;
+                border-radius: .2em;
+                background-color: $colorMainBackground;
+                outline: 0;
+                border: 0.08em solid lighten($colorInputBorder, 9%);
+                margin: .6em 0 1.5em 0;
+                padding: 0 1em;
+            }
+
+            .button{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                align-self: center;
+                background-color: $colorPrimaryBlue;
+                color: $colorWhite;
+                height: 2.5em;
+                border: none;
+                padding: 0 2em;
+                border-radius: .15em;
+                font-weight: 400;
+                font-size: .7em;
+            }
         }
 
-        .page-topbar {
+        .page-actionbar{
+            margin-bottom: 1.5em !important;
+        }
+
+        .page-topbar, .page-actionbar {
             display: flex;
             justify-content: space-between;
-            padding-bottom: 1.7em;
+            flex-wrap: wrap;
+            //padding-bottom: 1.5em;
 
             .btn-group {
                 display: flex;
@@ -260,17 +308,119 @@ button {
                         transition: .2s;
                     }
                 }
-            }
 
-            .filter-group {
-                & select {
-                    //border: solid red;
-                    height: 2.5em;
-                    border: none;
+                .btn-page-tertiary{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: $colorPrimaryBlue;
+                    color: $colorWhite;
+                    height: 2em;
                     padding: 0 2em;
+                   
                     border-radius: .15em;
                     font-weight: 400;
                     font-size: .7em;
+                }
+            }
+
+            .filter-group {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                padding-bottom: 1.7em;
+
+                .filter-inputs{
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+
+
+                    form{
+                        display: flex;
+                        flex-direction: column;
+                       margin-right: 20px;
+    
+                        .form-inline{
+                            display: flex;
+                            flex-direction: row;
+    
+                            input{
+                                height: 25px;
+                                width: 100px;
+                                border: .05em solid $colorInputBorder;
+                                //border: solid red;
+                                padding: 0 1em;
+                                margin-right: 10px;
+                                font-weight: 400;
+                                font-size: .7em;
+                                background-color: $colorWhite;
+                                outline: 0;
+                                border-radius: .15em;
+    
+                                &:last-child{
+                                    margin: 0;
+                                } 
+                            }
+                        }
+
+                        h5{
+                            margin: .6em 0;
+                            font-weight: 400;
+                            font-size: .7em;
+                            color: $colorPrimaryDark;
+                        }
+                    }
+    
+                    select{
+                        
+                        height: 25px;
+                        width: 100px;
+                        padding: 0 1em;
+                        border: .05em solid $colorInputBorder;
+                        border-radius: 0;
+                        font-weight: 400;
+                        font-size: .7em;
+                        background-color: $colorWhite;
+                        outline: 0;
+                        -webkit-appearance: none;
+                        border-radius: .15em;
+                    }
+                }
+
+              
+
+                & .btn-group{
+                    align-self: flex-end;
+                    //border: solid green;
+                }
+
+                &:last-child{
+                    align-self: flex-end;
+                }
+
+               
+            }
+        }
+
+        .chartsContainer{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            & .container{
+                padding: .5em;
+                width: 100%;
+                background-color: $colorWhite;
+                margin-bottom: 2em;
+                @include cardShadow;
+
+                h3{
+                    font-size: 15px;
+                    font-weight: 400;
+                    margin: .5em;
                 }
             }
         }
@@ -301,14 +451,13 @@ button {
                         border-collapse: separate;
                         border-bottom: 1px solid $colorDivider;
                         padding: 0 20px;
-
+                        cursor: pointer;
+                        white-space:nowrap;
                         .fa {
                             padding-left: .3em;
                         }
 
-                        &:hover {
-                            cursor: pointer;
-                        }
+                        
                     }
                 }
             }
@@ -329,13 +478,14 @@ button {
                     &:hover {
                         background-color: $colorDivider;
                         transition: .4s;
-                        cursor: pointer;
+                      
                     }
 
                     td {
                         padding: 0 20px;
                         border-collapse: separate;
-
+                        font-size: .9em;
+                        font-weight: 400;
                         &:last-child {
                             display: flex;
                             height: 55px;
@@ -391,7 +541,11 @@ button {
                 padding: 2em;
                 width: 100%;
 
-                input[type=text], input[type=file], textarea {
+                // select{
+                //     border: solid red;
+                // }
+
+                input[type=text], input[type=datetime-local], input[type=file], textarea, select {
                     width: 100%;
                     height: 3.5em;
                     border-radius: .2em;
@@ -447,20 +601,94 @@ button {
                         border: none;
                     }
                 }
+
+                .btn-card-primary {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: $colorPrimaryBlue;
+                    color: $colorWhite;
+                    border: none;
+                    height: 2.5em;
+                    padding: 0 2em;
+                    border-radius: .15em;
+                    font-weight: 400;
+                    font-size: 10px;
+
+
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }    
             }
 
             .cd-top {
-                height: 200px;
+                height: 250px;
                 width: 100%;
+                position: relative;
+                
+                
 
                 & .event-bg-img {
-                    
                     width: inherit;
                     height: inherit;
                     background-size: cover;
                     border-radius: .2em .2em 0 0;
-                    background-color: black;
-                    background-blend-mode: lighten;
+                    //z-index: 800;
+                    filter: opacity(35%);
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background-image:linear-gradient(
+                        red, #f06d06
+                      );
+
+                
+                }
+
+                & .event-title{
+                    height: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-end;
+                    padding: 1.5em 1.5em;
+                    //z-index: 1200;
+                    filter: opacity(100%);
+                    border-bottom: .15em solid $colorDivider;
+
+                    background-image:linear-gradient(
+                        transparent, white
+                      );
+
+                      h1{
+                          font-weight: 400;
+                        
+                          color: $colorPrimaryDark;
+                          font-size: 1.5em;
+                      }
+                    
+
+                    .btn-card-secondary {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        white-space:nowrap;
+                        background-color: $colorPrimaryBlue;
+                        color: $colorWhite;
+                        height: 2.5em;
+                        padding: 0 2em;
+                        border-radius: .15em;
+                        font-weight: 400;
+                        font-size: .9em;
+
+                        @include cardShadow;
+    
+                        .fa {
+                            font-size: 1.2em;
+                            padding-right: 0.5em;
+                            margin-top: .1em;
+                        }
+                    }
                 }
 
                 // img{
@@ -478,53 +706,90 @@ button {
             }
 
             .cd-right {
-                .mapSecondary {
+                #mapCreate{
                     width: 100%;
                     height: 50%;
+                    clear: both;
+                    margin-bottom: 1em;
+                }
+
+                p{
+                    font-weight: 300;
+                    font-size: .8em;
+                    margin-bottom: .8em;
+                }
+
+                h4{
+                    font-weight: 500;
                 }
 
                 section {
-                    // .checkboxBtn {
-                    //     width: 40px;
-                    //     height: 40px;
-                    //     background: #ddd;
-                    //     margin: 20px 90px;
-
-                    //     border-radius: 100%;
-                    //     position: relative;
-                    //     box-shadow: 0px 1px 3px rgba(0,0,0,0.5);
-
-                    //     label {
-                    //         display: block;
-                    //         width: 30px;
-                    //         height: 30px;
-                    //         border-radius: 100px;
-
-                    //         transition: all .5s ease;
-                    //         cursor: pointer;
-                    //         position: absolute;
-                    //         top: 5px;
-                    //         left: 5px;
-                    //         z-index: 1;
-
-                    //         background: #333;
-                    //         box-shadow:inset 0px 1px 3px rgba(0,0,0,0.5);
-                    //     }
-
-                    //     & input[type=checkbox]:checked + label{
-                    //         background: #26ca28;
-                    //     }
-                    // }
+                  
                
                 }
             }
+
+            .cd-middle{
+               display: flex;
+               justify-content: space-between;
+               flex-wrap: wrap;
+                width: 100%;
+                padding: 1em 1.5em;
+
+                .event-info{
+                    margin: .7em 0;
+                    color: $colorPrimaryDark;
+
+                    .fa{
+                        font-size: 1.2em;
+                        padding-right: 0.9em;
+                    }
+
+                    a{
+                        color: $colorPrimaryBlue;
+                        text-decoration: none;
+
+                    }
+                }
+
+                .event-social{
+                    margin: .7em 0;
+                    color: $colorPrimaryDark;
+                    .fa{
+                        font-size: 1.7em;
+                        margin-right: .2em;
+                    }
+                }
+
+                h4{
+                    font-weight: 600;
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+
+            .cd-bottom{
+                padding: 1em 1.5em;
+
+                h3{
+                  font-weight: 500;  
+                }
+
+                p{
+                    color: $colorPrimaryDark;
+                }
+            }
+
         }
 
         .card-event{
             display: flex;
             flex-direction: column !important;
-        
-    
+        }
+
+        #calendar {
+            max-width: 900px;
+            margin: 0 auto;
         }
 
     }
@@ -581,24 +846,33 @@ button {
         padding: 0 10em;
 
         .page {
+
+            .chartsContainer{
+                align-items: space-between;
+                & .container{
+                    width: 48%;
+                    &:nth-child(1){
+                        margin-right: .6em;
+                    }
+    
+                    &:nth-child(2){
+                        margin-left: .6em;
+                    }
+    
+                    &:last-child{
+                        width: 100%;
+                    }
+                }
+            }
             div[class^="card"] {
                 flex-direction: row;
 
                 .cd-left {}
             }
+
+            .card-event{
+                width: 85% !important;
+            }
         }
     }
 }
-
-    //  #loginResponse {
-    //      border: 1px solid red;
-    //      background-color: rgba(255,0,0,0.5);
-    //      width: 50px;
-    //      height: 50px;
-         
-
-    //  }
-
-    .chartsContainer {
-       
-    }

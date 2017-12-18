@@ -12,7 +12,7 @@ if(isset($_POST['login'])){
     // DB connection 
     $servername = "localhost";
     $username = "root";
-    $password = "";
+    $password = "root";
     $dbname = "evenTech_dbExam";
     
     

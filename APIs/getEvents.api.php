@@ -24,7 +24,7 @@ if(isset($_POST["key"])){
         
          foreach($result as $tableEntry) {
              $tableData .= '
-             <tr class="table-event-row" data-showThisPage="pageEvent1">
+             <tr id="'.$tableEntry["name"].'" class="table-event-row" data-showThisPage="pageEvent1">
              <td data-th="Name">'.$tableEntry["name"].'</td>
              <td data-th="Date">'.$tableEntry["date"].'</td>
              <td data-th="Location">'.$tableEntry["locationName"].'</td>
@@ -34,7 +34,7 @@ if(isset($_POST["key"])){
              <td>
                  <button class="button btn-table btn-open" data-showThisPage="pageEvent1">Open</button>
                  <button class="button btn-table btn-edit">Edit</button>
-                 <button class="button btn-table btn-delete">Delete</button>
+                 <button class="button btn-table btn-delete" data-deleteEvent="'.$tableEntry["name"].'">Delete</button>
              </td>
          </tr>
              

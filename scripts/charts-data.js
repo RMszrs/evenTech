@@ -1,4 +1,4 @@
-
+console.log('hey');
 /*************************** LINE CHART FOR READERSHIP */
 
 var ctx = document.getElementById("attendanceLineChart").getContext('2d');
