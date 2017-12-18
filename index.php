@@ -336,8 +336,8 @@ if(!isset($_SESSION['loggedIn'])) {
     
     <script src="vendor/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
     <script src="vendor/chartjs/chart.js"></script>
-    <script src="scripts/charts-data.js"></script>
     <script src="vendor/tablesorter/tablesorter.js"></script>
+    <script src="scripts/charts-data.js"></script>
     <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAndibcuJ2-yDr8C7gpxWZC48__TpqRoKs&callback=initMap"></script> -->
 
 
